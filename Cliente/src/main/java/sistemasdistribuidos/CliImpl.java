@@ -17,6 +17,8 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     
     private String mensagemMotorista;
     private String mensagemPassageiro;
+    private int idmensagemM = 0;
+    private int idmensagemP = 0;
     
     public CliImpl() throws RemoteException {
 
@@ -28,7 +30,7 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
         
         System.out.println(dadosPassageiro);
         mensagemMotorista = dadosPassageiro;
-        
+        idmensagemM++;
     }    
     
     @Override
@@ -36,17 +38,29 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     public void notificarPassageiro(String dadosMotorista) throws RemoteException {    
         System.out.println(dadosMotorista);
         mensagemPassageiro = dadosMotorista;
-        
+        idmensagemP++;
     }
 
     @Override
     public String getMensagemMotorista() throws RemoteException{
+        
         return mensagemMotorista;
     }    
     
     @Override
     public String getMensagemPassageiro() throws RemoteException{
+        
         return mensagemPassageiro;
     }
+
+    @Override
+    public int getIdmensagemM() {
+        return idmensagemM;
+    }
+
+    @Override
+    public int getIdmensagemP() {
+        return idmensagemP;
+    } 
     
 }

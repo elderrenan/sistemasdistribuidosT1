@@ -30,6 +30,8 @@ public class Tela extends javax.swing.JFrame {
     static InterfaceServ referenciaServidor;  
     int idInteresseCarona;
     int idInteressePassageiro;
+    int idmensagemM = 0;
+    int idmensagemP = 0;
     AssinaturaRemetente remetente = new AssinaturaRemetente();
     
     public Tela() {
@@ -601,7 +603,10 @@ public class Tela extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         model2.clear();
         try {
-            model2.addElement(cliente.getMensagemPassageiro());
+            if(idmensagemP < cliente.getIdmensagemP()){
+                idmensagemP = cliente.getIdmensagemP();
+                model2.addElement(cliente.getMensagemPassageiro());
+            }
         } catch (RemoteException ex) {
             System.out.println("Cliente carona: " + ex.getMessage());
         } 
@@ -610,7 +615,10 @@ public class Tela extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         model1.clear();
         try {
-            model1.addElement(cliente.getMensagemMotorista());
+            if(idmensagemM < cliente.getIdmensagemM()){
+                idmensagemM = cliente.getIdmensagemM();
+                model1.addElement(cliente.getMensagemMotorista());
+            }
         } catch (RemoteException ex) {
             System.out.println("Cliente carona: " + ex.getMessage());
         }

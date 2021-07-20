@@ -20,5 +20,9 @@ public interface InterfaceCli extends Remote {
     String getMensagemPassageiro() throws RemoteException;
     
     String getMensagemMotorista() throws RemoteException;    
+
+    public int getIdmensagemM() throws RemoteException;
+    
+    public int getIdmensagemP() throws RemoteException;    
     
 }
