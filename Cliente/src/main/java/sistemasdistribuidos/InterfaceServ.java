@@ -28,8 +28,4 @@ public interface InterfaceServ extends Remote {
     
     void cancInteresseEmPassageiro(int id) throws RemoteException;
     
-    void notificarPassageiro(InterfaceCli referenciaCliente, String texto) throws RemoteException;
-
-    void notificarMotorista(InterfaceCli referenciaCliente, String texto) throws RemoteException;  
-    
 }

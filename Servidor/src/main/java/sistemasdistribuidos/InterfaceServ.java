@@ -26,10 +26,6 @@ public interface InterfaceServ extends Remote {
     
     int interesseEmPassageiro(InterfaceCli referenciaCliente, String nome, String telefone, String origem, String destino, String data, int passageiros, PublicKey pubKey, String mensagem, byte[] assinatura) throws RemoteException;
     
-    void cancInteresseEmPassageiro(int id) throws RemoteException;
-    
-    void notificarPassageiro(InterfaceCli referenciaCliente, String texto) throws RemoteException;
-
-    void notificarMotorista(InterfaceCli referenciaCliente, String texto) throws RemoteException;    
+    void cancInteresseEmPassageiro(int id) throws RemoteException; 
     
 }

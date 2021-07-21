@@ -41,24 +41,20 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
         idmensagemP++;
     }
 
-    @Override
     public String getMensagemMotorista() throws RemoteException{
         
         return mensagemMotorista;
     }    
     
-    @Override
     public String getMensagemPassageiro() throws RemoteException{
         
         return mensagemPassageiro;
     }
 
-    @Override
     public int getIdmensagemM() {
         return idmensagemM;
     }
 
-    @Override
     public int getIdmensagemP() {
         return idmensagemP;
     } 

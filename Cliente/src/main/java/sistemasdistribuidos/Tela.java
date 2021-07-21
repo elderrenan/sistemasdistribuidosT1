@@ -26,7 +26,7 @@ public class Tela extends javax.swing.JFrame {
     private final DefaultListModel model1 = new DefaultListModel();
     private final DefaultListModel model2 = new DefaultListModel();
     private final DefaultListModel model3 = new DefaultListModel(); 
-    static InterfaceCli cliente;
+    static CliImpl cliente;
     static InterfaceServ referenciaServidor;  
     int idInteresseCarona;
     int idInteressePassageiro;
@@ -531,7 +531,6 @@ public class Tela extends javax.swing.JFrame {
         jButton2.setEnabled(true);
         jButton3.setEnabled(true);
         jButton4.setEnabled(false);
-        
         
         try {
             

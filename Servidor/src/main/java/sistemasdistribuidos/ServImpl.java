@@ -56,7 +56,7 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ {
             //Verificação de nulo para evitar null pointer exception dados que id único é o índice na lista
             if(c != null){
                 if(c.getOrigem().equals(origem) && c.getDestino().equals(destino) && c.getData().equals(data)){
-                    listaCaronas.add("\nMotorista: " + c.getNome() + ". Passageiros: " + c.getPassageiros());
+                    listaCaronas.add("\nMotorista: " + c.getNome() + ". Telefone: " + c.getTelefone());
                 }
             }
         });
@@ -82,11 +82,11 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ {
                                 System.out.println("Interesse M: " + (interesseMotorista.size() - 1));
 
                                 //Chamada bidirecional chamando método do cliente para notificar o motorista
-                                notificarMotorista(c.getInterfaceCli(), "Novo passageiro! Passageiro: " + nome + " Telefone: " + telefone);
+                                c.getInterfaceCli().notificarMotorista("Novo passageiro! Passageiro: " + nome + " Telefone: " + telefone);
 
                             } else {
                                 //"Notifica" motoristas que não se enquadraram nos dados da carona com vazio. Melhorar.
-                                notificarMotorista(c.getInterfaceCli(), "");
+                                c.getInterfaceCli().notificarMotorista("");
                             }
                         } catch (RemoteException ex) {
                                 System.out.println("NotificarPassageiro: " + ex.getMessage());
@@ -134,11 +134,11 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ {
                                 System.out.println("\ninteresse P: " + (interessePassageiro.size() - 1));
                                 
                                 //Chamada bidirecional chamando método do cliente para notificar o passageiro
-                                notificarPassageiro(c.getInterfaceCli(), "Nova carona! Motorista: " + nome + " Telefone: " + telefone);
+                                c.getInterfaceCli().notificarPassageiro("Nova carona! Motorista: " + nome + " Telefone: " + telefone);
 
                             } else {
-                                //"Notifica" passageiros que não se enquadraram nos dados da carona com vazio. Melhorar.
-                                notificarPassageiro(c.getInterfaceCli(), "");
+                                //"Notifica" passageiros que não se enquadraram nos dados da carona com vazio. Melhorar.           
+                                c.getInterfaceCli().notificarPassageiro("");
                             }
                         } catch (RemoteException ex) {
                             System.out.println("NotificarPassageiro: " + ex.getMessage());
@@ -167,19 +167,6 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ {
         
     }    
  
-    @Override
-    public void notificarPassageiro(InterfaceCli referenciaCliente, String texto) throws RemoteException {
-        //Chamada bidirecional chamando método do cliente para notificar o passageiro
-        referenciaCliente.notificarPassageiro(texto);
-    }    
-  
-    @Override
-    public void notificarMotorista(InterfaceCli referenciaCliente, String texto) throws RemoteException {
-        //Chamada bidirecional chamando método do cliente para notificar o motorista
-        referenciaCliente.notificarMotorista(texto);
-    }     
-
-    
     //Adaptado de https://www.devmedia.com.br/como-criar-uma-assinatura-digital-em-java/31287
     public boolean recebeMensagem(PublicKey pubKey, String mensagem, byte[] assinatura) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
        Signature clientSig = Signature.getInstance("DSA");
