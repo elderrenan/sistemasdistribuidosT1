@@ -56,4 +56,4 @@ carona que atenda seus critérios. Essa mensagem conterá informações sobre o 
 passageiro interessado na sua carona. Essa mensagem conterá informações sobre o passageiro que está interessado na sua carona (valor 0,5);
 
 Observações:
-• Desenvolva uma interface com recursos de interação apropriados;
+• Desenvolva uma interface com recursos de interação apropriados
