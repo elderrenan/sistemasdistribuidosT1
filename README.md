@@ -16,43 +16,43 @@ Aplicação distribuída para viagens de carona
 
 - Métodos disponíveis no servidor (valor 2,0):
 
-- Cadastro usuário (valor 0,2):
-  - Clientes devem informar seu nome, telefone e chave pública.
-  
-- Consulta de caronas (valor 0,3):
-  - Consulta de caronas. Clientes devem informar a origem, destino e a data da viagem desejada.
-  
-- Registro de interesse em eventos (valor 1,1):
+  - Cadastro usuário (valor 0,2):
+    - Clientes devem informar seu nome, telefone e chave pública.
 
-  - O cliente interessado em uma carona pode atuar como subscriber, registrando interesse em receber notificações do
-  servidor quando uma nova carona que atenda seus critérios de viagem (evento de interesse) estiver disponível.
-  Para isso, o cliente (assinante) enviará a sua referência de objeto remoto   ao servidor juntamente com seu nome, contato, origem,
-  destino e data da viagem. O servidor retornará um id único para esse registro (valor 0,3).
-    - Essa mensagem de registro de interesse em carona   deve conter uma assinatura digital.
-    Para isso, o cliente utilizará a sua chave privada. O servidor receberá a
-    mensagem e validará a assinatura utilizando a chave  pública correspondente (valor 0,25).
-    
-  - O cliente interessado em passageiros para sua viagem pode atuar como subscriber, registrando interesse em receber
-  notificações do servidor quando um novo passageiro que atenda seus critérios de viagem (evento de interesse) estiver
-  disponível. Para isso, o cliente (assinante) enviará a sua referência de objeto remoto ao servidor juntamente com seu
-  nome, contato, origem, destino, data da viagem e número de passageiros. O servidor retornará um id único para esse
-  registro (valor 0,3).
-    - Essa mensagem de registro de interesse em passageiros para viagem deve conter uma assinatura digital.
-    Para isso, o cliente utilizará a sua chave privada.
-    O servidor receberá a mensagem e validará a assinatura utilizando a chave pública correspondente (valor 0,25).
+  - Consulta de caronas (valor 0,3):
+    - Consulta de caronas. Clientes devem informar a origem, destino e a data da viagem desejada.
 
-- Cancelamento de um registro de interesse (valor 0,4):
-  - O cliente interessado em uma carona pode a qualquer momento cancelar o interesse em receber notificações sobre
-  novas caronas de seu interesse. Para isso será informado o id do registro que se deseja cancelar (valor 0,2).
-  - O cliente interessado em passageiros pode a qualquer momento cancelar o interesse em receber notificações sobre
-  novos passageiros de seu interesse. Para isso será informado o id do registro que se deseja cancelar (valor 0,2).
+  - Registro de interesse em eventos (valor 1,1):
+
+    - O cliente interessado em uma carona pode atuar como subscriber, registrando interesse em receber notificações do
+    servidor quando uma nova carona que atenda seus critérios de viagem (evento de interesse) estiver disponível.
+    Para isso, o cliente (assinante) enviará a sua referência de objeto remoto   ao servidor juntamente com seu nome, contato, origem,
+    destino e data da viagem. O servidor retornará um id único para esse registro (valor 0,3).
+      - Essa mensagem de registro de interesse em carona   deve conter uma assinatura digital.
+      Para isso, o cliente utilizará a sua chave privada. O servidor receberá a
+      mensagem e validará a assinatura utilizando a chave  pública correspondente (valor 0,25).
+
+    - O cliente interessado em passageiros para sua viagem pode atuar como subscriber, registrando interesse em receber
+    notificações do servidor quando um novo passageiro que atenda seus critérios de viagem (evento de interesse) estiver
+    disponível. Para isso, o cliente (assinante) enviará a sua referência de objeto remoto ao servidor juntamente com seu
+    nome, contato, origem, destino, data da viagem e número de passageiros. O servidor retornará um id único para esse
+    registro (valor 0,3).
+      - Essa mensagem de registro de interesse em passageiros para viagem deve conter uma assinatura digital.
+      Para isso, o cliente utilizará a sua chave privada.
+      O servidor receberá a mensagem e validará a assinatura utilizando a chave pública correspondente (valor 0,25).
+
+  - Cancelamento de um registro de interesse (valor 0,4):
+    - O cliente interessado em uma carona pode a qualquer momento cancelar o interesse em receber notificações sobre
+    novas caronas de seu interesse. Para isso será informado o id do registro que se deseja cancelar (valor 0,2).
+    - O cliente interessado em passageiros pode a qualquer momento cancelar o interesse em receber notificações sobre
+    novos passageiros de seu interesse. Para isso será informado o id do registro que se deseja cancelar (valor 0,2).
 
 - Cada cliente tem um método para o recebimento de notificações de eventos do servidor (valor 1,0):
 
-- O cliente interessado em uma carona receberá uma notificação de evento do servidor, via chamada de método, quando surgir uma
-carona que atenda seus critérios. Essa mensagem conterá informações sobre o motorista que está oferecendo a carona (valor 0,5);
+  - O cliente interessado em uma carona receberá uma notificação de evento do servidor, via chamada de método, quando surgir uma
+  carona que atenda seus critérios. Essa mensagem conterá informações sobre o motorista que está oferecendo a carona (valor 0,5);
 
-- O cliente que oferece uma carona receberá uma notificação de evento do servidor, via chamada de método, quando surgir um
-passageiro interessado na sua carona. Essa mensagem conterá informações sobre o passageiro que está interessado na sua carona (valor 0,5);
+  - O cliente que oferece uma carona receberá uma notificação de evento do servidor, via chamada de método, quando surgir um
+  passageiro interessado na sua carona. Essa mensagem conterá informações sobre o passageiro que está interessado na sua carona (valor 0,5);
 
 - Desenvolva uma interface com recursos de interação apropriados
