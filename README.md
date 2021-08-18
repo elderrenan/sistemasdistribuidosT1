@@ -1,6 +1,6 @@
 # sistemasdistribuidosT1
 
-Arquitetura Cliente-Servidor
+Java RMI / Pyro - Arquitetura Cliente-Servidor
 
 Modelo Publisher/Subscriber (Eventos e Notificações)
 Aplicação distribuída para viagens de carona
